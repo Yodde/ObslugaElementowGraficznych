@@ -1,0 +1,13 @@
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\bin\Debug\ObslugaElementowGraficznych.exe.config
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\bin\Debug\ObslugaElementowGraficznych.exe
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\bin\Debug\ObslugaElementowGraficznych.pdb
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych.csprojResolveAssemblyReference.cache
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\MainWindow.baml
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\MainWindow.g.cs
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\App.g.cs
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych_MarkupCompile.cache
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych.g.resources
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych.Properties.Resources.resources
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych.csproj.GenerateResource.Cache
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych.exe
+c:\users\szymon\documents\visual studio 2013\Projects\ObslugaElementowGraficznych\ObslugaElementowGraficznych\obj\Debug\ObslugaElementowGraficznych.pdb
