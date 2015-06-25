@@ -14,15 +14,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
+
 namespace ObslugaElementowGraficznych {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
         int wynik;
+        bool powt;
         double start = 0.0;
-        int sleep = 100;
-        int licz = 0;
+        int sleep = 1000;
         bool koniec = false;
         DispatcherTimer timer;
         TimeSpan time, addTime;
@@ -51,8 +53,7 @@ namespace ObslugaElementowGraficznych {
             while(true) {
                 if(koniec) {
                     silnia.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-           new Action(() => silnia.Text = wynik.ToString() + " " + licz));
-                    timer.Stop();
+           new Action(() => silnia.Text = wynik.ToString()));
                     break;
                 }
                 else {
@@ -63,35 +64,44 @@ namespace ObslugaElementowGraficznych {
         }
         public void addToLoadBar(double x) {
             while(start < 1) {
-                start += x;
-                st.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-                    new Action(() => st.ScaleX = start));
-                st.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-                    new Action(() => LoadBar.LayoutTransform = st));
-                licz++;
+                if(powt) {
+                    start += x;
+                    st.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                        new Action(() => st.ScaleX = start));
+                    st.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                        new Action(() => LoadBar.LayoutTransform = st));
+                }
+                else
+                    powt = true;
                 Thread.Sleep(sleep);
             }
             koniec = true;
+            timer.Stop();
         }
         private void Start_Click(object sender, RoutedEventArgs e) {
-            licz = 0;
-            koniec = false;
-            time = TimeSpan.Zero;
-            start = 0.0;
-            wynik = 0;
-            st.ScaleX = start;
-            LoadBar.LayoutTransform = st;
-            int n = Convert.ToInt32(silnia.Text);
-            Task t2 = Task.Run(() => LiczSilnie(n));
-
-            while(wynik == 0) ;
-            double s = (double)wynik / 10.0;
-            time = new TimeSpan(0, 0, (int)Math.Ceiling(s));
-            timer.Start();
-            Task t1 = Task.Run(() => {
-                double x = 1.0 / wynik;
-                addToLoadBar(x);
-            });
+            int n;
+            string nfromTextBox = silnia.Text;
+            if(int.TryParse(nfromTextBox, out n)) {
+                koniec = false;
+                time = TimeSpan.Zero;
+                start = 0.0;
+                powt = false;
+                wynik = 0;
+                st.ScaleX = start;
+                LoadBar.LayoutTransform = st;
+                //  int n = Convert.ToInt32(silnia.Text);
+                int s;
+                Task t2 = Task.Run(() => LiczSilnie(n));
+                if(n == 0)
+                    s = 1;
+                else
+                    s = n * n;
+                time = new TimeSpan(0, 0, s+1);
+                timer.Start();
+                Task t1 = Task.Run(() => {
+                    addToLoadBar(1.0/(double)s);
+                });
+            }
         }
         void timer_Tick(object sender, EventArgs e) {
             time -= addTime;
